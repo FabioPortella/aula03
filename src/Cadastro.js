@@ -6,7 +6,8 @@ export default function Cadastro() {
         nascimento: "",
         observacao: "",
         tipo: 0,
-        destroCanhoto: ''
+        destroCanhoto: '',
+        acesso: false,
     });
 
     const handleSubmit = (event) => {
@@ -15,9 +16,16 @@ export default function Cadastro() {
     }
 
     const handleChange = (event) => {
-        setDados(
-            dados => ({...dados, [event.target.name]: event.target.value})
+        if (event.target.type === 'checkbox') {
+            setDados(
+                dados => ({...dados, [event.target.name]: event.target.checked})
+            );
+        }
+        else {
+            setDados(
+                dados => ({...dados, [event.target.name]: event.target.value})
         );
+        }        
     }
 
     return (
@@ -61,6 +69,12 @@ export default function Cadastro() {
                     <input type='radio' className='form-check-input me-1' id="canhoto" value="C"
                     checked={dados.destroCanhoto === 'C'} onChange={handleChange} name='destroCanhoto'></input>
                     <label htmlFor='canhoto' className='form-check-label'>Canhoto</label>
+                </div>
+
+                <div className='form-check form-switch mt-2'>
+                    <input type="checkbox" className='form-check-input' id="acesso"
+                    checked={dados.acesso} onChange={handleChange} name="acesso"></input> 
+                    <label htmlFor='acesso' className='form-check-label'>Possui acesso ao sistema?</label>
                 </div>
 
                 <button type="submit" className="btn btn-primary mt-2">Enviar</button>
