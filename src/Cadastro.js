@@ -29,8 +29,10 @@ export default function Cadastro() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="container-fluid mt-2">
+        
+        <div className="container mt-2">
+            <h2>Exemplo de Cadastro de Clínica</h2>
+            <form onSubmit={handleSubmit}>
                 <div className="form-floating">
                     <input type="text" className="form-control" id="nome"
                      placeholder="Nome" value={dados.nome} onChange={handleChange} name="nome" />
@@ -78,8 +80,8 @@ export default function Cadastro() {
                 </div>
 
                 <button type="submit" className="btn btn-primary mt-2">Enviar</button>
-            </div>
-        </form>
+            </form>
+        </div>      
     );
 }
 
