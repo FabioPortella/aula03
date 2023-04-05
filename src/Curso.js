@@ -22,10 +22,12 @@ export default function Curso() {
     return (
         <div className='container mt-2'>
             <h2>Exemplo de validação</h2>
-            <form onSubmit={handleSubmit}>
+            <form id="form" onSubmit={handleSubmit} className="needs-validation" noValidate>
                 <label className='row mt-2'>
                     Nome
                     <input type="text" name='nome' onChange={handleChange} required minLength={2} maxLength={100} className="form-control" />
+                    <div className="valid-feedback">Tudo certo por aqui</div>
+                    <div className="invalid-feedback">Algo não está certo</div>
                 </label>
                 <label className='row mt-2'>
                     Sigla
