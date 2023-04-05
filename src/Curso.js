@@ -9,8 +9,14 @@ export default function Curso() {
     })
 
     function handleSubmit(event) {
-        console.log(dados);
+        let form = document.getElementById('form');
+
         event.preventDefault();
+        event.stopPropagation();
+        form.classList.add('was-validated');
+        if (form.checkValidity()){
+            console.log(dados);
+        }
     };
 
     const handleChange = (event) => {
