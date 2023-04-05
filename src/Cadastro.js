@@ -1,0 +1,61 @@
+import React,{useState} from 'react';
+
+export default function Cadastro() {
+    const [dados, setDados] = useState({
+        nome : "",
+        nascimento: "",
+        observacao: "",
+        tipo: 0
+    });
+
+    const handleSubmit = (event) => {
+        console.log(dados);
+        event.preventDefault();
+    }
+
+    const handleChange = (event) => {
+        setDados(
+            dados => ({...dados, [event.target.name]: event.target.value})
+        );
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <div className="container-fluid mt-2">
+                <div className="form-floating">
+                    <input type="text" className="form-control" id="nome"
+                     placeholder="Nome" value={dados.nome} onChange={handleChange} name="nome" />
+                    <label htmlFor="nome">Nome</label>
+                </div>
+
+                <div className="form-floating mt-2">
+                    <input type="date" className="form-control" id="data"
+                     placeholder="Data" value={dados.nascimento} onChange={handleChange} name="nascimento" />
+                    <label htmlFor="data">Data de nascimento</label>
+                </div>
+
+                <div className="form-floating mt-2">
+                    <textarea className="form-control" id="observacao" style={{height: "200px"}}
+                        placeholder="observacao" value={dados.observacao}
+                        onChange={handleChange} name="observacao" />
+                    <label htmlFor="observacao">Observação</label>
+                </div>
+
+                <div className='form-floating mt-2'>
+                    <select className='form-select' id="tipo" placeholder='tipo'
+                    value={dados.tipo} onChange={handleChange} name='tipo'>
+                        <option key={0} value={0} disabled>[Escolha]</option>
+                        <option key={1} value={1}>Médico(a)</option>
+                        <option key={2} value={2}>Secretário(a)</option>
+                        <option key={3} value={3}>Paciente</option>
+                    </select>
+                    <label htmlFor='tipo'>Tipo de Usunário</label>
+                </div>
+
+                <button type="submit" className="btn btn-primary mt-2">Enviar</button>
+            </div>
+        </form>
+    );
+}
+
+//pagina 23 da aula 03
