@@ -5,7 +5,8 @@ export default function Cadastro() {
         nome : "",
         nascimento: "",
         observacao: "",
-        tipo: 0
+        tipo: 0,
+        destroCanhoto: ''
     });
 
     const handleSubmit = (event) => {
@@ -50,6 +51,16 @@ export default function Cadastro() {
                         <option key={3} value={3}>Paciente</option>
                     </select>
                     <label htmlFor='tipo'>Tipo de Usunário</label>
+                </div>
+
+                <div>
+                    <input type='radio' className='form-check-input me-1' id="destro" value="D"
+                    checked={dados.destroCanhoto === 'D'} onChange={handleChange} name='destroCanhoto'></input>
+                    <label htmlFor='destro' className='form-check-label'>Destro</label>
+
+                    <input type='radio' className='form-check-input me-1' id="canhoto" value="C"
+                    checked={dados.destroCanhoto === 'C'} onChange={handleChange} name='destroCanhoto'></input>
+                    <label htmlFor='canhoto' className='form-check-label'>Canhoto</label>
                 </div>
 
                 <button type="submit" className="btn btn-primary mt-2">Enviar</button>
