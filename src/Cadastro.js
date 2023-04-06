@@ -10,9 +10,15 @@ export default function Cadastro() {
         acesso: false,
     });
 
-    const handleSubmit = (event) => {
-        console.log(dados);
+    function handleSubmit(event) {
+        let form = document.getElementById('form');
+        
         event.preventDefault();
+        event.stopPropagation();
+        form.classList.add('was-validated');
+        if(form.checkValidity()){
+            console.log(dados);
+        }
     }
 
     const handleChange = (event) => {
@@ -32,16 +38,19 @@ export default function Cadastro() {
         
         <div className="container mt-2">
             <h2>Exemplo de Cadastro de Clínica</h2>
-            <form onSubmit={handleSubmit}>
+            <form id="form" onSubmit={handleSubmit} className='needs-validation' noValidate>
                 <div className="form-floating">
-                    <input type="text" className="form-control" id="nome"
-                     placeholder="Nome" value={dados.nome} onChange={handleChange} name="nome" />
+                    <input 
+                        type="text" name="nome" onChange={handleChange} required minLength={2} maxLength={100} 
+                        className="form-control" id="nome" placeholder="Nome" value={dados.nome} />
+                    <div className="invalid-feedback">Nome deve ter no minimo 3 caracteres e no máximo 100.</div>
                     <label htmlFor="nome">Nome</label>
                 </div>
 
                 <div className="form-floating mt-2">
                     <input type="date" className="form-control" id="data"
-                     placeholder="Data" value={dados.nascimento} onChange={handleChange} name="nascimento" />
+                        placeholder="Data" value={dados.nascimento} onChange={handleChange} required name="nascimento" />
+                    <div className="invalid-feedback">Uma data dever ser informada.</div>
                     <label htmlFor="data">Data de nascimento</label>
                 </div>
 
@@ -54,7 +63,7 @@ export default function Cadastro() {
 
                 <div className='form-floating mt-2'>
                     <select className='form-select' id="tipo" placeholder='tipo'
-                    value={dados.tipo} onChange={handleChange} name='tipo'>
+                    value={dados.tipo} onChange={handleChange} required name='tipo'>
                         <option key={0} value={0} disabled>[Escolha]</option>
                         <option key={1} value={1}>Médico(a)</option>
                         <option key={2} value={2}>Secretário(a)</option>
