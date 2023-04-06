@@ -37,26 +37,30 @@ export default function Curso() {
         <div className='container mt-2'>
             <h2>Exemplo de validação com Hook-Form e Yup</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-            <label className='row mt-2'>
+                <label className='row mt-2'>
                     Nome
                     <input type="text" className="form-control" {...register("nome")} />
                     <span className='text-danger'>{errors.nome?.message}</span>
                 </label>
+
                 <label className='row mt-2'>
                     Sigla
                     <input type="text" className="form-control" {...register("sigla")}/>
                     <span className='text-danger'>{errors.sigla?.message}</span>
                 </label>
+
                 <label className='row mt-2'>
                     Quantidade de semestres
                     <input type="number" className="form-control" {...register("semestres")} />
                     <span className='text-danger'>{errors.semestres?.message}</span>
                 </label>
+
                 <label className='row mt-2'>
                     Data de início
                     <input type="date" className="form-control" {...register("inicio")} />
                     <span className='text-danger'>{errors.inicio?.message}</span>
                 </label>
+                
                 <button type='submit' className='btn btn-primary mt-2'>Salvar</button>
             </form>
         </div>
