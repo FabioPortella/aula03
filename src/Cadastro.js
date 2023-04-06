@@ -39,7 +39,7 @@ export default function Cadastro() {
         <div className="container mt-2">
             <h2>Exemplo de Cadastro de Clínica</h2>
             <form id="form" onSubmit={handleSubmit} className='needs-validation' noValidate>
-                <div className="form-floating">
+                <div className="form-floating mt-2">
                     <input 
                         type="text" name="nome" onChange={handleChange} required minLength={2} maxLength={100} 
                         className="form-control" id="nome" placeholder="Nome" value={dados.nome} />

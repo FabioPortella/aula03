@@ -41,38 +41,39 @@ export default function Curso() {
     }
 
     return (
+
         <div className='container mt-2'>
             <h2>Validação de Veículos com Hook-Form e Yup</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <label className='row mt-2'>
-                    Modelo
+                <div className="form-floating mt-2">
                     <input type="text" className="form-control" {...register("modelo")} />
-                    <span className='text-danger'>{errors.modelo?.message}</span>
-                </label>
+                    <label>Modelo</label>
+                    <span className='text-danger'>{errors.modelo?.message}</span>                                        
+                </div>
 
-                <label className='row mt-2'>
-                    Placa
+                <div className="form-floating mt-2">                
                     <input type="text" className="form-control" {...register("placa")}/>
+                    <label>Placa</label>
                     <span className='text-danger'>{errors.placa?.message}</span>
-                </label>
+                </div>
 
-                <label className='row mt-2'>
-                    Ano de Fabricação
+                <div className="form-floating mt-2">
                     <input type="number" className="form-control" {...register("anoFabricacao")} />
+                    <label>Ano de Fabricação</label>
                     <span className='text-danger'>{errors.anoFabricacao?.message}</span>
-                </label>
+                </div>
 
-                <label className='row mt-2'>
-                    Ano Modelo
+                <div className="form-floating mt-2">
                     <input type="number" className="form-control" {...register("anoModelo")} />
+                    <label>Ano Modelo</label>
                     <span className='text-danger'>{errors.anoModelo?.message}</span>
-                </label>
+                </div>
 
-                <label className='row mt-2'>
-                    Email do Proprietário
+                <div className='form-floating mt-2'>   
                     <input type="email" className="form-control" {...register("email")} />
+                    <label>Email do Proprietário</label>
                     <span className='text-danger'>{errors.email?.message}</span>
-                </label>
+                </div>
                 
                 <button type='submit' className='btn btn-primary mt-2'>Salvar</button>
             </form>
