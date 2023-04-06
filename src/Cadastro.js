@@ -77,7 +77,7 @@ export default function Cadastro() {
                     checked={dados.destroCanhoto === 'D'} onChange={handleChange} name='destroCanhoto'></input>
                     <label htmlFor='destro' className='form-check-label'>Destro</label>
 
-                    <input type='radio' className='form-check-input me-1' id="canhoto" value="C"
+                    <input type='radio' className='form-check-input ms-3 me-1' id="canhoto" value="C"
                     checked={dados.destroCanhoto === 'C'} onChange={handleChange} name='destroCanhoto'></input>
                     <label htmlFor='canhoto' className='form-check-label'>Canhoto</label>
                 </div>
