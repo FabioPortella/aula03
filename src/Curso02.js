@@ -11,7 +11,7 @@ export default function Curso() {
 
     return (
         <div className='container mt-2'>
-            <h2>Exemplo de validação</h2>
+            <h2>Exemplo de validação com biblioteca React Hook Form</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label className='row mt-2'>
                     Nome
