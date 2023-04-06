@@ -74,6 +74,11 @@ export default function Curso() {
                     <label>Email do Proprietário</label>
                     <span className='text-danger'>{errors.email?.message}</span>
                 </div>
+
+                <div className='form-floating mt-2'>   
+                    <textarea className="form-control" style={{height: "200px"}} {...register("obs")} />
+                    <label>Observações</label>                    
+                </div>
                 
                 <button type='submit' className='btn btn-primary mt-2'>Salvar</button>
             </form>
